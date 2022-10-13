@@ -281,12 +281,12 @@ Aimbot:AddToggle({text = "Team Check", flag = "TeamCheck", state = false})
 Aimbot:AddList({text = "Mode", max = 3, flag = "AimMode", values = {"Camera", "Mouse"}, value = "Camera"});
 
 Aimbot:AddDivider();
-Aimbot:AddSlider({text = "Aim Smoothness", flag = "AimSmoothness", tip = "Aimbot mouse only", min = 1, max = 100, value = 5})
+Aimbot:AddSlider({text = "Sensitive of Aiming", flag = "AimSmoothness", tip = "Aimbot mouse only", min = 1, max = 100, value = 5})
 
 Aimbot:AddList({text = "Target Priority", max = 3, flag = "Priority", values = {"Head", "HumanoidRootPart", "Torso"}, value = "Head"});
 
 Aimbot:AddDivider();
-Aimbot:AddToggle({text = "Visible Check", flag = "VisCheck", state = false})
+Aimbot:AddToggle({text = "Wall Check", flag = "VisCheck", state = false})
 Aimbot:AddToggle({text = "Draw Circle", flag = "Circle", state = false, callback = function(a) FovCircle.Visible = a
 end}):AddColor({flag = "CircleColor", color = Color3.fromRGB(255, 255, 255), callback = function(a) FovCircle.Color = a end});
 Aimbot:AddSlider({text = "Circle Radius", flag = "FOV", min = 1, max = 1000, value = 100, callback = function(a) FovCircle.Radius = a end})
