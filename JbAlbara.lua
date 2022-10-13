@@ -81,6 +81,14 @@ end)
 local Server = Window:NewTab("Server")
 local ServerSection = Server:NewSection("Server")
 
+ServerSection:NewToggle("Remove Grass", "Remove Grass", function(state)
+    if state then
+        sethiddenprop(workspace.Terrain, "Decoration", false)
+    else
+        sethiddenprop(workspace.Terrain, "Decoration", true)
+    end
+end)
+
 ServerSection:NewButton("NPC No Damage", "NPC Off", function()
     game:GetService('RunService').Stepped:connect(function() -- i use this if i comes back
         if game:GetService("Workspace"):FindFirstChild("GuardNPCPlayers") then
@@ -102,7 +110,7 @@ ServerSection:NewButton("ESP Airdrop", "ESP Airdrop", function()
 end)
 
 local About = Window:NewTab("About")
-local Version = About:NewSection("Version 1.0.3")
+local Version = About:NewSection("Version 1.0.4")
 local Credit = About:NewSection("Made By Albara#9123")
 local Close = About:NewSection("Press G To Close The Gui")
 Close:NewKeybind("Close/Open UI", "Opens And Closes The Gui", Enum.KeyCode.G, function()
