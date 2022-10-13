@@ -80,6 +80,74 @@ local function IsVisible(pos, part)
 end
 
 
+local function GetClosestToCenter()
+    local UserInputService = game:GetService("UserInputService")
+    local Camera = game.Workspace.CurrentCamera
+    local Distance = 99999
+    local SAimDistance = 99999
+    local PlayerPos2 = Vector2.new(0,0)
+    for i,v in pairs(game.Players:GetChildren()) do
+        if v.Character and v.Name ~= game.Players.LocalPlayer.Name then
+            local PlayerHeadPart = v.Character:FindFirstChild(library.flags["Priority"])
+            local ssize = Vector2.new(Camera.ViewportSize.x / 2, Camera.ViewportSize.y / 2)
+            if PlayerHeadPart then
+                pos3 = Camera:WorldToViewportPoint(PlayerHeadPart.Position)
+                if pos3.z > 0 then
+                    pos2 = Vector2.new(pos3.x, pos3.y)
+                    local dist = get2dDistance(pos2, ssize)
+                    if library.flags["TeamCheck"] then
+                        if v.Team ~= game.Players.LocalPlayer.Team then
+                            if dist < Distance  then
+                                Distance = dist
+                                ReturnPlayer = v
+                                PlayerPos2 = pos2
+                            end
+                        end 
+                    else
+                        if dist < Distance  then
+                            Distance = dist
+                            ReturnPlayer = v
+                            PlayerPos2 = pos2
+                        end               
+                    end
+                    if library.flags["SilentAimTeamCheck"] then
+                        if v.Team ~= game.Players.LocalPlayer.Team then -- is enemy 
+                            if library.flags["SilentAimVisibleCheck"] and IsVisible(PlayerHeadPart.Position, PlayerHeadPart) then
+                                if dist < SAimDistance  then
+                                    SAimDistance = dist
+                                    SAimReturnPlayer = v
+                                    SAimPlayerPos2 = pos2
+                                end
+                            else
+                                if dist < SAimDistance  then
+                                    SAimDistance = dist
+                                    SAimReturnPlayer = v
+                                    SAimPlayerPos2 = pos2
+                                end
+                            end
+                        end 
+                    else
+                        if library.flags["SilentAimVisibleCheck"] and IsVisible(PlayerHeadPart.Position, PlayerHeadPart) then
+                            if dist < SAimDistance  then -- is teammate
+                                SAimDistance = dist
+                                SAimReturnPlayer = v
+                                SAimPlayerPos2 = pos2
+                            end
+                        else
+                            if dist < SAimDistance  then -- is teammate
+                                SAimDistance = dist
+                                SAimReturnPlayer = v
+                                SAimPlayerPos2 = pos2
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    print(ReturnPlayer, PlayerPos2)
+    return ReturnPlayer, PlayerPos2, SAimReturnPlayer, SAimPlayerPos2
+end
 
 
 
