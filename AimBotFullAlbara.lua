@@ -110,37 +110,9 @@ local function GetClosestToCenter()
                             PlayerPos2 = pos2
                         end               
                     end
-                    if library.flags["SilentAimTeamCheck"] then
-                        if v.Team ~= game.Players.LocalPlayer.Team then -- is enemy 
-                            if library.flags["SilentAimVisibleCheck"] and IsVisible(PlayerHeadPart.Position, PlayerHeadPart) then
-                                if dist < SAimDistance  then
-                                    SAimDistance = dist
-                                    SAimReturnPlayer = v
-                                    SAimPlayerPos2 = pos2
-                                end
-                            else
-                                if dist < SAimDistance  then
-                                    SAimDistance = dist
-                                    SAimReturnPlayer = v
-                                    SAimPlayerPos2 = pos2
-                                end
-                            end
-                        end 
-                    else
-                        if library.flags["SilentAimVisibleCheck"] and IsVisible(PlayerHeadPart.Position, PlayerHeadPart) then
-                            if dist < SAimDistance  then -- is teammate
-                                SAimDistance = dist
-                                SAimReturnPlayer = v
-                                SAimPlayerPos2 = pos2
-                            end
-                        else
-                            if dist < SAimDistance  then -- is teammate
-                                SAimDistance = dist
-                                SAimReturnPlayer = v
-                                SAimPlayerPos2 = pos2
-                            end
-                        end
-                    end
+                   
+                        
+                    
                 end
             end
         end
@@ -190,7 +162,7 @@ end
 
 
 
--- Metamethod hook initialization because we do not want to hook at the start of the game because if we hook at the start of the game depending on the game and obfucsator we can lag or break game so instead we will  put it in a function and call it when we want to hook metatmethods, the call will be in the silent aim toggle  first time it is pressed it will be called 
+-- Metamethod 
 
 
 local function ItializedMetamethodHooks() 
@@ -202,22 +174,7 @@ local function ItializedMetamethodHooks()
         if checkcaller() then return OldIndex(Self, Key) end 
         
         
-        if library.flags["SilentAimEnabled"] and library.flags["SilentAimMethod"] == "Method 2" and SAimGlobalTarget then
-            if tostring(Key) == "Hit" then
-                
-                if Checkfov(SAimGlobalTargetPosition, library.flags["SilentAimFov"]) then
-                    return SAimGlobalTarget.CFrame
-                end
-            end
-        end
-        
-        
-        if library.flags["JumpPowerKickBypass"] and tostring(Key) == "JumpPower" then
-            return 50
-        end
-        if library.flags["WalkSpeedKickBypass"] and tostring(Key) == "WalkSpeed" then
-            return 14
-        end
+
         
         
         
@@ -230,24 +187,12 @@ local function ItializedMetamethodHooks()
         local Method = getnamecallmethod()
         local MethodArgs = {...}
         
-        if library.flags["SilentAimEnabled"] and library.flags["SilentAimMethod"] == "Method 1" and SAimGlobalTarget then
-            if string.find(Method, "Ray") then
-                if Checkfov(SAimGlobalTargetPosition, library.flags["SilentAimFov"]) then
-                    
-                    MethodArgs[2] = Ray.new( Game.Workspace.CurrentCamera.CFrame.Position,
-                    (SAimGlobalTarget.Position + Vector3.new(0, (Game.Workspace.CurrentCamera.CFrame.Position - SAimGlobalTarget.Position).Magnitude / 500, 0) -
-                    Game.Workspace.CurrentCamera.CFrame.Position).unit * 500)  
-                    return OldNameCall(unpack(MethodArgs))
-                    
-                end
-            end
-        end
-        return OldNameCall(...)
+
     end)
 end
 
 --[[
-Wasnt working near the btotom of the script so I added it up here, sets the part and position of the global silent aim target
+Wasnt ------------------------------------
 ]]--
 spawn(function()
     while task.wait(0.05) do
