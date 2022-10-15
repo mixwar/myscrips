@@ -102,7 +102,13 @@ end)
 
 ServerSection:NewButton("Fling Player ( press X to on or off)", "Fling other players", function()
 
-        ()
+     local Bakery = game:GetService("Workspace").Givers.Station;
+
+for _, ClickDetector in pairs(Bakery:GetDescendants()) do
+    if (ClickDetector:IsA("ClickDetector")) then
+        fireclickdetector(ClickDetector);
+    end;
+end;
 end)
 
 ServerSection:NewButton("ESP Airdrop", "ESP Airdrop", function()
