@@ -101,8 +101,8 @@ ServerSection:NewButton("ESP", "ESP Players", function()
 end)
 
 ServerSection:NewButton("Fling Player ( press X to on or off)", "Fling other players", function()
-    _G.KeyCode = "X"
-loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
+
+        ()
 end)
 
 ServerSection:NewButton("ESP Airdrop", "ESP Airdrop", function()
