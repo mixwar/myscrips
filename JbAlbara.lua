@@ -166,10 +166,35 @@ ServerSection:NewButton("ESP Airdrop", "ESP Airdrop", function()
     loadstring(game:HttpGet('https://pastebin.com/raw/GiJvzt5b'))()
 end)
 
-local About = Window:NewTab("About")
-local Version = About:NewSection("Version 1.0.4")
+
+ServerSection:NewLabel("Removes")
+ServerSection:NewButton("Museum.Doors", "Remove Museum.Doors", function()
+    local amount=100
+for i=1,amount do
+game:GetService("Workspace").Museum.Doors:remove()
+end
+end)
+ServerSection:NewButton("SwingDoors", "Remove SwingDoors", function()
+    local amount=100
+for i=1,amount do
+game:GetService("Workspace").SwingDoor:remove()
+end
+end)
+ServerSection:NewButton("SlideDoors", "Remove SlideDoors", function()
+    local amount=100
+for i=1,amount do
+game:GetService("Workspace").SlideDoor:remove()
+end
+end)
+
+--------------------
+
+
+local About = Window:NewTab("About 2022/10/19")
+local Version = About:NewSection("Version 1.1.4")
 local Credit = About:NewSection("Made By Albara#9123")
 local Close = About:NewSection("Press G To Close The Gui")
 Close:NewKeybind("Close/Open UI", "Opens And Closes The Gui", Enum.KeyCode.G, function()
     Library:ToggleUI()
 end)
+
