@@ -167,6 +167,13 @@ ServerSection:NewButton("ESP Airdrop", "ESP Airdrop", function()
 end)
 
 
+ServerSection:NewButton("123", "123", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/AirC.lua"))()
+end)
+
+-------------
+
+
 ServerSection:NewLabel("Removes")
 ServerSection:NewButton("Museum.Doors", "Remove Museum.Doors", function()
     local amount=100
@@ -197,4 +204,3 @@ local Close = About:NewSection("Press G To Close The Gui")
 Close:NewKeybind("Close/Open UI", "Opens And Closes The Gui", Enum.KeyCode.G, function()
     Library:ToggleUI()
 end)
-
