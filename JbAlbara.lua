@@ -167,9 +167,6 @@ ServerSection:NewButton("ESP Airdrop", "ESP Airdrop", function()
 end)
 
 
-ServerSection:NewButton("123", "123", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/AirC.lua"))()
-end)
 
 -------------
 
