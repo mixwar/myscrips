@@ -31,15 +31,47 @@ end)
 
 MainSection:NewToggle("No Wait", "No Wait on - off", function(state)
     if state then
-        local Interface = require(game:GetService("ReplicatedStorage").Module.UI);
-for i,a in next, Interface.CircleAction.Specs do
-   a.Timed = false;
-end;
+       
+        
+        _G.toggle =  true     ------ true  = enable false = disable
+
+        while _G.toggle do
+           
+           wait (0.1)
+           
+                local Interface = require(game:GetService("ReplicatedStorage").Module.UI);
+        for i,a in next, Interface.CircleAction.Specs do
+           a.Timed = false
+        end;
+        
+        wait (0.1)
+        
+        end
+
     else
-        local Interface = require(game:GetService("ReplicatedStorage").Module.UI);
-for i,a in next, Interface.CircleAction.Specs do
-   a.Timed = true;
-end;
+       
+        _G.toggle =  false     ------ true  = enable false = disable
+
+        while _G.toggle do
+           
+           wait (0.1)
+           
+                local Interface = require(game:GetService("ReplicatedStorage").Module.UI);
+        for i,a in next, Interface.CircleAction.Specs do
+           a.Timed = false
+        end;
+        
+        wait (0.1)
+        
+        end
+        
+        wait (0.2)
+           
+                local Interface = require(game:GetService("ReplicatedStorage").Module.UI);
+        for i,a in next, Interface.CircleAction.Specs do
+           a.Timed = true
+        end;
+
     end
 end)
 
@@ -194,8 +226,8 @@ end)
 --------------------
 
 
-local About = Window:NewTab("About 2022/10/19")
-local Version = About:NewSection("Version 1.1.4")
+local About = Window:NewTab("About 2022/10/23")
+local Version = About:NewSection("Version 1.1.5 Fix No Wait")
 local Credit = About:NewSection("Made By Albara#9123")
 local Close = About:NewSection("Press G To Close The Gui")
 Close:NewKeybind("Close/Open UI", "Opens And Closes The Gui", Enum.KeyCode.G, function()
