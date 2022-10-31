@@ -4,6 +4,7 @@ local Window = Library.CreateLib("Jailbreak by Albara#9123", "Synapse")
 ------------------------------- main
 local Main = Window:NewTab("Local")
 local MainSection = Main:NewSection("Main")
+local BetaSection = Main:NewSection("Beta Auto AirDrop Money")
 
 MainSection:NewButton("Grab Shotgun", "Give you a Shotgun", function()
     local Bakery = game:GetService("Workspace").Givers.Station;
@@ -165,6 +166,87 @@ end
 end)
 
 
+BetaSection:NewToggle("Code 1", "ToggleInfo", function(state)
+    if state then
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/0-150%20T.lua"))() )
+    else
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/0-150%20F.lua"))() )
+    end
+end)
+BetaSection:NewToggle("Code 2", "ToggleInfo", function(state)
+    if state then
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/150-300%20T.lua"))() )
+    else
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/150-300%20F.lua"))() )
+    end
+end)
+BetaSection:NewToggle("Code 3", "ToggleInfo", function(state)
+    if state then
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/300-450%20T.lua"))())
+    else
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/300-450%20F.lua"))())
+    end
+end)
+BetaSection:NewToggle("Code 4", "ToggleInfo", function(state)
+    if state then
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/450-600%20T.lua"))())
+    else
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/450-600%20F.lua"))())
+    end
+end)
+BetaSection:NewToggle("Code 5", "ToggleInfo", function(state)
+    if state then
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/600-750%20T.lua"))())
+    else
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/600-750%20F.lua"))())
+    end
+end)
+BetaSection:NewToggle("Code 6", "ToggleInfo", function(state)
+    if state then
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/750-900%20T.lua"))())
+    else
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/750-900%20F.lua"))())
+    end
+end)
+BetaSection:NewToggle("Code 7", "ToggleInfo", function(state)
+    if state then
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/900-1050%20T.lua"))())
+    else
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/900-1050%20F.lua"))())
+    end
+end)
+BetaSection:NewToggle("Code 8", "ToggleInfo", function(state)
+    if state then
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/3050-3200%20T.lua"))())
+    else
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/3050-3200%20F.lua"))())
+    end
+end)
+BetaSection:NewToggle("Code 9", "ToggleInfo", function(state)
+    if state then
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/3200-3350%20T.lua"))())
+    else
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/3200-3350%20F.lua"))())
+    end
+end)
+BetaSection:NewToggle("Code 10", "ToggleInfo", function(state)
+    if state then
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/3350-3500%20T.lua"))())
+    else
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/3350-3500%20F.lua"))())
+    end
+end)
+BetaSection:NewToggle("Code 11", "ToggleInfo", function(state)
+    if state then
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/3500-3650%20T.lua"))())
+    else
+        print(loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/ScriptTest/main/3500-3650%20F.lua"))())
+    end
+end)
+
+
+
+
 ------------------------------------- Server
 local Server = Window:NewTab("Server")
 local ServerSection = Server:NewSection("Server")
@@ -226,8 +308,8 @@ end)
 --------------------
 
 
-local About = Window:NewTab("About 2022/10/23")
-local Version = About:NewSection("Version 1.1.5 Fix No Wait")
+local About = Window:NewTab("About 2022/10/31")
+local Version = About:NewSection("Version 1.2.2 Add AirDrop Col")
 local Credit = About:NewSection("Made By Albara#9123")
 local Close = About:NewSection("Press G To Close The Gui")
 Close:NewKeybind("Close/Open UI", "Opens And Closes The Gui", Enum.KeyCode.G, function()
