@@ -196,6 +196,14 @@ ServerSection:NewButton("Fling Player ( press X to on or off)", "Fling other pla
     loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
 end)
 
+ServerSection:NewButton("TP GUI", "TP", function()
+
+    
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/mixwar/myscrips/main/AlbaraTPSU.lua"))()
+end)
+
+
+
 ServerSection:NewButton("ESP Airdrop", "ESP Airdrop", function()
     loadstring(game:HttpGet('https://pastebin.com/raw/GiJvzt5b'))()
 end)
@@ -228,8 +236,8 @@ end)
 --------------------
 
 
-local About = Window:NewTab("About 2022/10/31")
-local Version = About:NewSection("Version 1.2.2 Add AirDrop Col")
+local About = Window:NewTab("About 2022/11/10")
+local Version = About:NewSection("Version 2.0.2 Add small GUI")
 local Credit = About:NewSection("Made By Albara#9123")
 local Close = About:NewSection("Press G To Close The Gui")
 Close:NewKeybind("Close/Open UI", "Opens And Closes The Gui", Enum.KeyCode.G, function()
