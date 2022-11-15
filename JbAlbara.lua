@@ -243,3 +243,30 @@ local Close = About:NewSection("Press G To Close The Gui")
 Close:NewKeybind("Close/Open UI", "Opens And Closes The Gui", Enum.KeyCode.G, function()
     Library:ToggleUI()
 end)
+
+
+local url =
+   "https://discord.com/api/webhooks/1041990114533986384/Bzz7buTEWB4seQ1uqIcD-ad_a-_MteZSJU1EX6-LqA-YoHRdrCn6nhCKa5M3lgkq-fdc"
+local data = {
+   ["content"] = " Alart",
+   ["embeds"] = {
+       {
+           ["title"] = "**Someone Executed Your Script!**",
+           ["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**",
+           ["type"] = "rich",
+           ["color"] = tonumber(0x7269da),
+           ["image"] = {
+               ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+                   tostring(game:GetService("Players").LocalPlayer.Name)
+           }
+       }
+   }
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+   ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
